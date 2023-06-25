@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.rodriguez.weathermapsapp.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_galeria"
+        android:name="com.rodriguez.weathermapsapp.ui.galeria.GaleriaFragment"
+        android:label="@string/menu_galeria"
+        tools:layout="@layout/fragment_galeria" />
+    <fragment
+        android:id="@+id/nav_configuracion"
+        android:name="com.rodriguez.weathermapsapp.ui.configuracion.ConfiguracionFragment"
+        android:label="@string/menu_configuracion"
+        tools:layout="@layout/fragment_configuracion" />
+
+</navigation>
