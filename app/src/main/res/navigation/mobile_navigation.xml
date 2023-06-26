@@ -8,17 +8,17 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.rodriguez.weathermapsapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label=""
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_galeria"
         android:name="com.rodriguez.weathermapsapp.ui.galeria.GaleriaFragment"
-        android:label="@string/menu_galeria"
+        android:label=""
         tools:layout="@layout/fragment_galeria" />
     <fragment
         android:id="@+id/nav_configuracion"
         android:name="com.rodriguez.weathermapsapp.ui.configuracion.ConfiguracionFragment"
-        android:label="@string/menu_configuracion"
+        android:label=""
         tools:layout="@layout/fragment_configuracion" />
 
 </navigation>

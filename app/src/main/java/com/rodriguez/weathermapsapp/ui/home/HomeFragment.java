@@ -14,7 +14,6 @@ import com.rodriguez.weathermapsapp.R;
 import com.rodriguez.weathermapsapp.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +23,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View view;
         view = inflater.inflate(R.layout.fragment_home, container, false);
+
         return view;
     }
 
