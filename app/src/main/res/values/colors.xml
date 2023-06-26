@@ -64,6 +64,6 @@
     <color name="Principal">#1D1B40</color>
     <color name="Secundario">#FED058</color>
     <color name="Terciario">#D9D9D9</color>
-
+    <color name="Cuaternario">#FFFFFF</color>
 <!--    <item name="harmonizeprincipal">true</item>-->
 </resources>
