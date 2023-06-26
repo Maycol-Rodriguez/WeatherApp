@@ -1,0 +1,18 @@
+
+<resources>
+    <attr name="colorPrincipal" format="color" />
+    <attr name="colorOnPrincipal" format="color" />
+    <attr name="colorPrincipalContainer" format="color" />
+    <attr name="colorOnPrincipalContainer" format="color" />
+    <attr name="harmonizePrincipal" format="boolean" />
+    <attr name="colorSecundario" format="color" />
+    <attr name="colorOnSecundario" format="color" />
+    <attr name="colorSecundarioContainer" format="color" />
+    <attr name="colorOnSecundarioContainer" format="color" />
+    <attr name="harmonizeSecundario" format="boolean" />
+    <attr name="colorTerciario" format="color" />
+    <attr name="colorOnTerciario" format="color" />
+    <attr name="colorTerciarioContainer" format="color" />
+    <attr name="colorOnTerciarioContainer" format="color" />
+    <attr name="harmonizeTerciario" format="boolean" />
+</resources>
