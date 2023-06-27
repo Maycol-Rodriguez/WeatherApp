@@ -71,8 +71,4 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.nav_host_fragment_content_main, new OpcionesFragment());
         fragmentTransaction.commit();
     }
-
-    public void tapStar(View view) {
-        Toast.makeText(this, "Elemento Clickeado", Toast.LENGTH_SHORT).show();
-    }
 }
