@@ -15,12 +15,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fragment_configuracion">fragment configuracion</string>
     <string name="fragment_galeria">fragment galeria</string>
+    <!-- TODO: Titulos -->
     <string name="fragment_opciones">Unidades</string>
     <string name="activity_bienvenida">activity bienvenida</string>
+    <string name="titulo_configuracion">Configuración</string>
 
     <string name="usuario">Maycol Rodriguez</string>
-    <string name="usuario_id">UID: 201504150</string>
+    <string name="usuario_id">UID: 71039644</string>
 
     <string name="usuario2">Edilson Marlon Pizarro Mallma</string>
     <string name="usuario_id2">UID: 72077014</string>
+
 </resources>

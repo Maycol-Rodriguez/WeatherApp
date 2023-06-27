@@ -25,7 +25,7 @@
             android:textStyle="bold" />
 
         <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/switch_temperatura"
+            android:id="@+id/swTemperatura"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
