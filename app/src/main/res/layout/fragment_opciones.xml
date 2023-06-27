@@ -26,6 +26,12 @@
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swTemperatura"
+            app:showText="true"
+            android:textOff="°C"
+            android:textOn="°F"
+            app:thumbTextPadding="10dp"
+            app:switchPadding="70dp"
+            app:switchMinWidth="50dp"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,6 +42,9 @@
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swVelocidad"
+            app:showText="true"
+            android:textOff="mph"
+            android:textOn="°Km/h"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,6 +55,9 @@
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swPresion"
+            app:showText="true"
+            android:textOff="hpa"
+            android:textOn="inHG"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,6 +68,9 @@
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swPrecipitacion"
+            app:showText="true"
+            android:textOff="mm"
+            android:textOn="in"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,6 +81,9 @@
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swDistancia"
+            app:showText="true"
+            android:textOff="Km"
+            android:textOn="mi"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,6 +104,10 @@
             android:textColor="@color/Principal"
             android:textSize="15sp"
             android:textStyle="bold" />
+
+
+
+
     </LinearLayout>
 
 

@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 
 import com.rodriguez.weathermapsapp.MainActivity;
 import com.rodriguez.weathermapsapp.R;
@@ -22,6 +23,7 @@ public class Bienvenida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
     }
+
 
     public void openHome(View view) {
         Intent intent = new Intent(this, MainActivity.class);
