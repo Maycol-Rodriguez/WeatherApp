@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 
+import com.rodriguez.weathermapsapp.MainActivity;
 import com.rodriguez.weathermapsapp.R;
 
 import java.util.Objects;
@@ -18,10 +21,10 @@ public class Bienvenida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
-//        int drawableId = R.drawable.appbar_theme; // Reemplaza con el ID correcto de tu drawable
-//        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(ContextCompat.getDrawable(this, drawableId));
+    }
 
-
-
+    public void openHome(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

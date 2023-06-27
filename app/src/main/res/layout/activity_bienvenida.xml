@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@drawable/background_theme"
     android:orientation="vertical"
     tools:context=".ui.bienvenida.Bienvenida">
@@ -13,41 +12,32 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
         android:text="Bienvenido"
         android:textColor="@color/Terciario"
         android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="217dp"
-        android:layout_height="169dp"
-        android:layout_marginTop="184dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
         app:srcCompat="@drawable/logo" />
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat10"
-        android:layout_width="336dp"
-        android:layout_height="228dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
         android:background="@drawable/rounded_corners"
         android:orientation="vertical"
-        android:padding="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnVermas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.47">
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -87,23 +77,17 @@
                     android:layout_gravity="center"
                     android:text="16°C"
                     android:textColor="@color/Principal"
-                    android:textSize="60sp" />
+                    android:textSize="50sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Martes, 27"
-                    android:textColor="@color/Principal"
-                    android:textSize="15sp" />
             </LinearLayout>
         </LinearLayout>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/linearLayoutCompat9"
-            android:layout_width="310dp"
-            android:layout_height="75dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners1"
+            android:layout_gravity="center"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -164,17 +148,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="104dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="@color/Secundario"
         android:paddingVertical="10dp"
         android:text="Ver más"
+        android:onClick="openHome"
         android:textColor="@color/Principal"
         android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textStyle="bold" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
