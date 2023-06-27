@@ -15,6 +15,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fragment_configuracion">fragment configuracion</string>
     <string name="fragment_galeria">fragment galeria</string>
-    <string name="fragment_opciones">fragment opciones</string>
+    <string name="fragment_opciones">Unidades</string>
     <string name="activity_bienvenida">activity bienvenida</string>
+
+    <string name="usuario">Maycol Rodriguez</string>
+    <string name="usuario_id">UID: 201504150</string>
 </resources>
