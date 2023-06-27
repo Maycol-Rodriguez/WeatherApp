@@ -9,7 +9,7 @@
     <string name="action_unidades">unidades</string>
 
     <string name="menu_home">Inicio</string>
-    <string name="menu_galeria">Galeria</string>
+    <string name="menu_galeria">Galeria de Favoritos</string>
     <string name="menu_configuracion">Configuracion</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -20,4 +20,7 @@
 
     <string name="usuario">Maycol Rodriguez</string>
     <string name="usuario_id">UID: 201504150</string>
+
+    <string name="usuario2">Edilson Marlon Pizarro Mallma</string>
+    <string name="usuario_id2">UID: 72077014</string>
 </resources>
