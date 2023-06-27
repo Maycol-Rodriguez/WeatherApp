@@ -1,17 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_opciones"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/background_theme"
+    android:orientation="vertical"
     tools:context=".ui.opciones.OpcionesFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="@string/fragment_opciones" />
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/fragment_opciones"
+            android:textColor="@color/Terciario"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switch_temperatura"
+            style="@style/Widget.App.Switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Temperatura"
+            android:textColor="@color/Terciario"
+            android:textSize="15sp" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/swVelocidad"
+            style="@style/Widget.App.Switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Velocidad del Viento"
+            android:textColor="@color/Terciario"
+            android:textSize="15sp" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/swPresion"
+            style="@style/Widget.App.Switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Presion"
+            android:textColor="@color/Terciario"
+            android:textSize="15sp" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/swPrecipitacion"
+            style="@style/Widget.App.Switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Precipitacion"
+            android:textColor="@color/Terciario"
+            android:textSize="15sp" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/swDistancia"
+            style="@style/Widget.App.Switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Distancia"
+            android:textColor="@color/Terciario"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnGuardarUnidades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
+            android:backgroundTint="@color/Secundario"
+            android:paddingVertical="10dp"
+            android:text="Guardar Cambios"
+            android:textColor="@color/Principal"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 
 </LinearLayout>
