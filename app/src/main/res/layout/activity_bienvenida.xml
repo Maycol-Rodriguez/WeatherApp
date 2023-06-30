@@ -27,7 +27,6 @@
         android:layout_marginTop="60dp"
         app:srcCompat="@drawable/logo" />
 
-
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat10"
         android:layout_width="match_parent"
