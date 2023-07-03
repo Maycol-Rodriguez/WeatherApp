@@ -27,7 +27,7 @@
         android:layout_marginTop="60dp"
         app:srcCompat="@drawable/logo" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:id="@+id/linearLayoutCompat10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvCiudad"
+                    android:id="@+id/biCiudad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -70,7 +70,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvTemperatura"
+                    android:id="@+id/biTemperatura"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -96,7 +96,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvHumedadClima"
+                    android:id="@+id/biHumedadClima"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -105,7 +105,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tvVientoClima"
+                    android:id="@+id/biVientoClima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Viento: 2.2mph"
@@ -120,7 +120,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvPresionClima"
+                    android:id="@+id/biPresionClima"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -129,7 +129,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tvPrecipitacionClima"
+                    android:id="@+id/biPrecipitacionClima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
@@ -140,7 +140,7 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnVermas"
