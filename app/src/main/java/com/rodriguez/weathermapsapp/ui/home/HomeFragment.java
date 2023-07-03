@@ -2,12 +2,10 @@ package com.rodriguez.weathermapsapp.ui.home;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -55,6 +53,12 @@ public class HomeFragment extends Fragment {
     ConexionSqlite conn;
     String icono;
 
+    boolean checkedTemp, checkedVelocidadViento, checkedPresion, checkedPrecipitacion, checkedDistancia;
+    String unidad = "";
+    String grados = "";
+
+    String formPresion = "";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +81,6 @@ public class HomeFragment extends Fragment {
         iconoClima = view.findViewById(R.id.ivIconoClima);
         txtFecha = view.findViewById(R.id.tvFecha);
 
-
         pronostico1 = view.findViewById(R.id.pronosticoTex1);
         pronostico2 = view.findViewById(R.id.pronosticoTex2);
         pronostico3 = view.findViewById(R.id.pronosticoTex3);
@@ -92,6 +95,24 @@ public class HomeFragment extends Fragment {
         contenedor = view.findViewById(R.id.contenedorDetalle);
 
         txtPronostico = view.findViewById(R.id.txtPronostico);
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            checkedTemp = bundle.getBoolean("temperatura");
+            checkedVelocidadViento = bundle.getBoolean("velocidadViento");
+            checkedPresion = bundle.getBoolean("presion");
+            checkedPrecipitacion = bundle.getBoolean("precipitacion");
+            checkedDistancia = bundle.getBoolean("distancia");
+        }
+
+        if (checkedTemp) {
+            unidad = "imperial";
+            grados = "°F";
+        } else {
+            unidad = "metric";
+            grados = "°C";
+        }
+
 
 
         conn = new ConexionSqlite(getContext(), CreacionBd.DB_NAME, null, CreacionBd.DB_VERSION);
@@ -139,31 +160,29 @@ public class HomeFragment extends Fragment {
     }
 
     private void btnBuscarClimaPorCiudad() {
+
         if (txtBuscar.getText().toString().isEmpty()) {
             Toast.makeText(getContext(), "Ingrese una ciudad", Toast.LENGTH_SHORT).show();
             return;
         }
-        String urlClima = Constantes.baseUrl + "weather?q=" + txtBuscar.getText().toString() + "&appid=" + Constantes.apiKey + "&units=metric&lang=es";
-        String urlPronostico = Constantes.baseUrl + "forecast?q=" + txtBuscar.getText().toString() + "&appid=" + Constantes.apiKey + "&units=metric&lang=es&cnt=20";
+
+
+        String urlClima = Constantes.baseUrl + "weather?q=" + txtBuscar.getText().toString().trim() + "&appid=" + Constantes.apiKey + "&units=" + unidad + "&lang=es";
+        String urlPronostico = Constantes.baseUrl + "forecast?q=" + txtBuscar.getText().toString() + "&appid=" + Constantes.apiKey + "&units=" + unidad + "&lang=es&cnt=20";
         RequestQueue requestClimaActual = Volley.newRequestQueue(getContext());
         StringRequest climaActual = new StringRequest(Request.Method.GET, urlClima, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String unidad = "";
 
-                if (unidad == "metric") {
-                    unidad = "°C";
-                } else {
-                    unidad = "°F";
-                }
+
                 Gson gson = new Gson();
                 ClimaPorNombre clima = gson.fromJson(response, ClimaPorNombre.class);
 
-                String temperatura = (int) clima.main.temp + "°C";
+                String temperatura = (int) clima.main.temp + grados;
                 String ciudad = clima.name;
                 String humedad = clima.main.humidity + "%";
                 String viento = clima.wind.speed + " m/s";
-                String presion = clima.main.pressure + " hPa";
+                String presion = checkedPresion ? (int) (clima.main.pressure * 0.0295301) + " inHg" : clima.main.pressure + " hPa";
                 String descripcion = clima.weather[0].description;
                 icono = Constantes.icono + clima.weather[0].icon + ".png";
                 Calendar calendar = Calendar.getInstance();
@@ -175,12 +194,12 @@ public class HomeFragment extends Fragment {
                 txtFecha.setText(currentDate);
                 txtTemperatura.setText(temperatura);
                 txtCiudad.setText(ciudad);
-                txtHumedad.setText("Humedad: "+humedad);
-                txtViento.setText("Viento: "+viento);
-                txtPresion.setText("Presion: "+presion);
+                txtHumedad.setText("Humedad: " + humedad);
+                txtViento.setText("Viento: " + viento);
+                txtPresion.setText("Presion: " + presion);
                 txtDescripcionClima.setText(descripcion);
                 Picasso.get().load(icono).into(iconoClima);
-                txtPrecipitacion.setText("Precipitacion: "+precipitacion);
+                txtPrecipitacion.setText("Precipitacion: " + precipitacion);
 
             }
         }, new Response.ErrorListener() {
@@ -215,9 +234,9 @@ public class HomeFragment extends Fragment {
                 String fecha2 = pronostico.getList().get(7).getDt_txt().split(" ")[0];
                 String fecha3 = pronostico.getList().get(15).getDt_txt().split(" ")[0];
 
-                String temperatura1 = pronostico.getList().get(0).getMain().getTemp() + "°C";
-                String temperatura2 = pronostico.getList().get(7).getMain().getTemp() + "°C";
-                String temperatura3 = pronostico.getList().get(15).getMain().getTemp() + "°C";
+                String temperatura1 = pronostico.getList().get(0).getMain().getTemp() + grados;
+                String temperatura2 = pronostico.getList().get(7).getMain().getTemp() + grados;
+                String temperatura3 = pronostico.getList().get(15).getMain().getTemp() + grados;
 
 
                 txtPronostico.setText("Pronostico para los proximos 3 dias");

@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -23,6 +24,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.rodriguez.weathermapsapp.databinding.ActivityMainBinding;
+import com.rodriguez.weathermapsapp.ui.home.HomeFragment;
 import com.rodriguez.weathermapsapp.ui.opciones.OpcionesFragment;
 
 import java.util.Objects;
@@ -69,6 +71,29 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.nav_host_fragment_content_main, new OpcionesFragment());
+        fragmentTransaction.commit();
+    }
+
+    public void enviarCambios(View view) {
+        Toast.makeText(this, "Cambios guardados", Toast.LENGTH_SHORT).show();
+        MaterialSwitch swTemperatura = findViewById(R.id.swTemperatura);
+        MaterialSwitch swVelocidadV = findViewById(R.id.swVelocidad);
+        MaterialSwitch swPresion = findViewById(R.id.swPresion);
+        MaterialSwitch swPrecipitacion = findViewById(R.id.swPrecipitacion);
+        MaterialSwitch swDistancia = findViewById(R.id.swDistancia);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("temperatura", swTemperatura.isChecked());
+        bundle.putBoolean("velocidadViento", swVelocidadV.isChecked());
+        bundle.putBoolean("presion", swPresion.isChecked());
+        bundle.putBoolean("precipitacion", swPrecipitacion.isChecked());
+        bundle.putBoolean("distancia", swDistancia.isChecked());
+
+        HomeFragment homeFragment = new HomeFragment();
+        homeFragment.setArguments(bundle);
+        fragmentTransaction.replace(R.id.nav_host_fragment_content_main, homeFragment);
         fragmentTransaction.commit();
     }
 }

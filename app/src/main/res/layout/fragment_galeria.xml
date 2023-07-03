@@ -10,10 +10,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/coordinatorLayout"
@@ -43,88 +42,28 @@
 
         </LinearLayout>
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout1"
-            android:layout_width="310dp"
+        <GridView
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp">
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:columnWidth="8dp"
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="140dp"
-                android:layout_height="160dp"
-                android:layout_gravity="left"
-                android:background="@drawable/rounded_corners"
-                android:orientation="vertical"
-                android:padding="15dp" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="140dp"
-                android:layout_height="160dp"
-                android:layout_gravity="right"
-                android:background="@drawable/rounded_corners"
-                android:orientation="vertical"
-                android:padding="15dp" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout2"
-            android:layout_width="310dp"
-            android:layout_marginTop="30dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
+            android:horizontalSpacing="20dp"
+            android:verticalSpacing="20dp"
+            android:numColumns="2"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="140dp"
-                android:layout_height="180dp"
-                android:layout_gravity="left"
-                android:background="@drawable/rounded_corners"
-                android:orientation="vertical"
-                android:padding="15dp" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="140dp"
-                android:layout_height="180dp"
-                android:layout_gravity="right"
-                android:background="@drawable/rounded_corners"
-                android:orientation="vertical"
-                android:padding="15dp" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout3"
-            android:layout_width="310dp"
-            android:layout_marginTop="30dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="140dp"
-                android:layout_height="180dp"
-                android:layout_gravity="left"
-                android:background="@drawable/rounded_corners"
-                android:orientation="vertical"
-                android:padding="15dp" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="140dp"
-                android:layout_height="180dp"
-                android:layout_gravity="right"
-                android:background="@drawable/rounded_corners"
-                android:orientation="vertical"
-                android:padding="15dp" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
 </LinearLayout>
+
 
     <!--<GridView-->
     <!--android:id="@+id/gridView"-->
