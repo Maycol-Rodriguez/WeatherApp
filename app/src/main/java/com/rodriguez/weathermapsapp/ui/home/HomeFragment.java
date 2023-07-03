@@ -1,5 +1,8 @@
 package com.rodriguez.weathermapsapp.ui.home;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +29,8 @@ import com.rodriguez.weathermapsapp.Helpers.Constantes;
 import com.rodriguez.weathermapsapp.Helpers.Mappers.ClimaPorNombre;
 import com.rodriguez.weathermapsapp.Helpers.Mappers.PronosticoClima;
 import com.rodriguez.weathermapsapp.R;
+import com.rodriguez.weathermapsapp.Sqlite.ConexionSqlite;
+import com.rodriguez.weathermapsapp.Sqlite.CreacionBd;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -46,6 +51,9 @@ public class HomeFragment extends Fragment {
     TextView txtPronostico, pronostico1, pronostico2, pronostico3;
     ImageView iconoPronostico1, iconoPronostico2, iconoPronostico3;
     TextView fechaPronostico1, fechaPronostico2, fechaPronostico3;
+
+    ConexionSqlite conn;
+    String icono;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,6 +93,9 @@ public class HomeFragment extends Fragment {
 
         txtPronostico = view.findViewById(R.id.txtPronostico);
 
+
+        conn = new ConexionSqlite(getContext(), CreacionBd.DB_NAME, null, CreacionBd.DB_VERSION);
+
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,14 +114,28 @@ public class HomeFragment extends Fragment {
     }
 
     private void toggleStrella() {
-
         if (activo) {
             estrella.setImageResource(R.drawable.ic_star_fill);
+            agregarFavorito();
             activo = false;
         } else {
             estrella.setImageResource(R.drawable.ic_star_empty);
             activo = true;
         }
+    }
+
+    private void agregarFavorito() {
+        SQLiteDatabase db = conn.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+
+        valores.put(CreacionBd.CAMPO_CIUDAD, txtCiudad.getText().toString());
+        valores.put(CreacionBd.CAMPO_TEMPERATURA, txtTemperatura.getText().toString());
+        valores.put(CreacionBd.CAMPO_DESCRIPCION, txtDescripcionClima.getText().toString());
+        valores.put(CreacionBd.CAMPO_FECHA, txtFecha.getText().toString());
+        valores.put(CreacionBd.CAMPO_IMAGEN, icono);
+        Long idResultante = db.insert(CreacionBd.TABLA_FAVORITOS, CreacionBd.CAMPO_ID, valores);
+        Toast.makeText(getContext(), "Id Registro: " + idResultante, Toast.LENGTH_SHORT).show();
+        db.close();
     }
 
     private void btnBuscarClimaPorCiudad() {
@@ -140,7 +165,7 @@ public class HomeFragment extends Fragment {
                 String viento = clima.wind.speed + " m/s";
                 String presion = clima.main.pressure + " hPa";
                 String descripcion = clima.weather[0].description;
-                String icono = Constantes.icono + clima.weather[0].icon + ".png";
+                icono = Constantes.icono + clima.weather[0].icon + ".png";
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                 String currentDate = dateFormat.format(calendar.getTime());

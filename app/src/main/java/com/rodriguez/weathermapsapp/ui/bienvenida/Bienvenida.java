@@ -95,7 +95,6 @@ public class Bienvenida extends AppCompatActivity {
                                     txtPresion.setText("Presion: " + presion);
                                     txtPrecipitacion.setText("Precipitacion: " + precipitacion);
 //                                    Picasso.get().load(icono).into(iconoClima);
-
                                 }
                             }, new Response.ErrorListener() {
                                 @Override

@@ -4,7 +4,7 @@ public class CreacionBd {
     public static final String TABLA_FAVORITOS = "favoritos";
 
     public static final String DB_NAME = "favoritos.db";
-    public static final String DB_VERSION = "1";
+    public static final int DB_VERSION = 1;
 
     public static final String CAMPO_ID = "id";
     public static final String CAMPO_CIUDAD = "ciudad";
