@@ -29,7 +29,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/rounded_corners"
                 android:hint="Ingrese nombre de una ciudad"
-                android:paddingHorizontal="20dp" />
+                android:paddingHorizontal="20dp"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/btnBuscar"
@@ -68,6 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:text="No ingreso una ciudad"
                     android:textColor="@color/Terciario"
                     android:textSize="25sp" />
 
@@ -112,12 +114,11 @@
             android:textColor="@color/Terciario"
             android:textSize="18sp" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <LinearLayout
             android:id="@+id/contenedorDetalle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:background="@drawable/rounded_corners"
             android:orientation="vertical"
             android:padding="15dp">
 
@@ -131,7 +132,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Humedad:  "
                     android:textColor="@color/Principal"
                     android:textSize="15sp" />
 
@@ -139,7 +139,6 @@
                     android:id="@+id/tvVientoClima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Viento:  "
                     android:textColor="@color/Principal"
                     android:textSize="15sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -155,7 +154,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Presion:  "
                     android:textColor="@color/Principal"
                     android:textSize="15sp" />
 
@@ -164,24 +162,114 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text="Precipitacion:   "
                     android:textColor="@color/Principal"
                     android:textSize="15sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="vertical">
 
-                <WebView
-                    android:id="@+id/webView"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
+                <TextView
+                    android:id="@+id/txtPronostico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:textStyle="bold"
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    />
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/pronosticoTex1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/pronosticoImage1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:id="@+id/pronosticoFecha1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/pronosticoTex2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/pronosticoImage2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:id="@+id/pronosticoFecha2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/pronosticoTex3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/pronosticoImage3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:id="@+id/pronosticoFecha3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
 

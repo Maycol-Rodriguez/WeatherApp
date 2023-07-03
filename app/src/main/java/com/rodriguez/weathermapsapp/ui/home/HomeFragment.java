@@ -24,6 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.rodriguez.weathermapsapp.Helpers.Constantes;
 import com.rodriguez.weathermapsapp.Helpers.Mappers.ClimaPorNombre;
+import com.rodriguez.weathermapsapp.Helpers.Mappers.PronosticoClima;
 import com.rodriguez.weathermapsapp.R;
 import com.squareup.picasso.Picasso;
 
@@ -32,7 +33,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class HomeFragment extends Fragment {
-    TextView txtTemperatura, txtCiudad, txtHumedad,txtViento, txtPresion, txtPrecipitacion, txtDescripcionClima, txtFecha;
+    TextView txtTemperatura, txtCiudad, txtHumedad, txtViento, txtPresion, txtPrecipitacion, txtDescripcionClima, txtFecha;
     ImageView estrella, iconoClima;
     LinearLayout contenedor;
     private boolean activo;
@@ -40,6 +41,11 @@ public class HomeFragment extends Fragment {
     Button btnBuscar;
 
     EditText txtBuscar;
+
+
+    TextView txtPronostico, pronostico1, pronostico2, pronostico3;
+    ImageView iconoPronostico1, iconoPronostico2, iconoPronostico3;
+    TextView fechaPronostico1, fechaPronostico2, fechaPronostico3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,22 @@ public class HomeFragment extends Fragment {
         txtDescripcionClima = view.findViewById(R.id.tvDescripcionClima);
         iconoClima = view.findViewById(R.id.ivIconoClima);
         txtFecha = view.findViewById(R.id.tvFecha);
+
+
+        pronostico1 = view.findViewById(R.id.pronosticoTex1);
+        pronostico2 = view.findViewById(R.id.pronosticoTex2);
+        pronostico3 = view.findViewById(R.id.pronosticoTex3);
+
+        iconoPronostico1 = view.findViewById(R.id.pronosticoImage1);
+        iconoPronostico2 = view.findViewById(R.id.pronosticoImage2);
+        iconoPronostico3 = view.findViewById(R.id.pronosticoImage3);
+
+        fechaPronostico1 = view.findViewById(R.id.pronosticoFecha1);
+        fechaPronostico2 = view.findViewById(R.id.pronosticoFecha2);
+        fechaPronostico3 = view.findViewById(R.id.pronosticoFecha3);
+        contenedor = view.findViewById(R.id.contenedorDetalle);
+
+        txtPronostico = view.findViewById(R.id.txtPronostico);
 
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,22 +118,23 @@ public class HomeFragment extends Fragment {
             Toast.makeText(getContext(), "Ingrese una ciudad", Toast.LENGTH_SHORT).show();
             return;
         }
-        String url = Constantes.baseUrl + "weather?q=" + txtBuscar.getText().toString() + "&appid=" + Constantes.apiKey+"&units=metric&lang=es";
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        String urlClima = Constantes.baseUrl + "weather?q=" + txtBuscar.getText().toString() + "&appid=" + Constantes.apiKey + "&units=metric&lang=es";
+        String urlPronostico = Constantes.baseUrl + "forecast?q=" + txtBuscar.getText().toString() + "&appid=" + Constantes.apiKey + "&units=metric&lang=es&cnt=20";
+        RequestQueue requestClimaActual = Volley.newRequestQueue(getContext());
+        StringRequest climaActual = new StringRequest(Request.Method.GET, urlClima, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 String unidad = "";
 
-                if(unidad=="metric"){
+                if (unidad == "metric") {
                     unidad = "°C";
-                }else{
+                } else {
                     unidad = "°F";
                 }
                 Gson gson = new Gson();
                 ClimaPorNombre clima = gson.fromJson(response, ClimaPorNombre.class);
 
-                String temperatura = (int) clima.main.temp + "°C";// Cambiar la metrica
+                String temperatura = (int) clima.main.temp + "°C";
                 String ciudad = clima.name;
                 String humedad = clima.main.humidity + "%";
                 String viento = clima.wind.speed + " m/s";
@@ -122,19 +145,18 @@ public class HomeFragment extends Fragment {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                 String currentDate = dateFormat.format(calendar.getTime());
                 String precipitacion = clima.wind.deg + "°";
-
+                contenedor.setBackground(getResources().getDrawable(R.drawable.rounded_corners));
                 estrella.setImageResource(R.drawable.ic_star_empty);
                 txtFecha.setText(currentDate);
                 txtTemperatura.setText(temperatura);
                 txtCiudad.setText(ciudad);
-                txtHumedad.append(humedad);
-                txtViento.append(viento);
-                txtPresion.append(presion);
+                txtHumedad.setText("Humedad: "+humedad);
+                txtViento.setText("Viento: "+viento);
+                txtPresion.setText("Presion: "+presion);
                 txtDescripcionClima.setText(descripcion);
                 Picasso.get().load(icono).into(iconoClima);
-                txtPrecipitacion.append(precipitacion);
+                txtPrecipitacion.setText("Precipitacion: "+precipitacion);
 
-                Toast.makeText(getContext(), "" + response, Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -143,14 +165,56 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getContext(), "No se encontró la ciudad", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(error.getMessage().isEmpty()){
+                if (error.getMessage().isEmpty()) {
                     Toast.makeText(getContext(), "No ", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Toast.makeText(getContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        requestQueue.add(stringRequest);
 
+
+        requestClimaActual.add(climaActual);
+
+        RequestQueue requestPronostico = Volley.newRequestQueue(getContext());
+        StringRequest pronostico = new StringRequest(Request.Method.GET, urlPronostico, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                PronosticoClima pronostico = gson.fromJson(response, PronosticoClima.class);
+                String icono1 = Constantes.icono + pronostico.getList().get(0).getWeather().get(0).getIcon() + ".png";
+                String icono2 = Constantes.icono + pronostico.getList().get(7).getWeather().get(0).getIcon() + ".png";
+                String icono3 = Constantes.icono + pronostico.getList().get(15).getWeather().get(0).getIcon() + ".png";
+
+                String fecha1 = pronostico.getList().get(0).getDt_txt().split(" ")[0];
+                String fecha2 = pronostico.getList().get(7).getDt_txt().split(" ")[0];
+                String fecha3 = pronostico.getList().get(15).getDt_txt().split(" ")[0];
+
+                String temperatura1 = pronostico.getList().get(0).getMain().getTemp() + "°C";
+                String temperatura2 = pronostico.getList().get(7).getMain().getTemp() + "°C";
+                String temperatura3 = pronostico.getList().get(15).getMain().getTemp() + "°C";
+
+
+                txtPronostico.setText("Pronostico para los proximos 3 dias");
+                pronostico1.setText(temperatura1);
+                pronostico2.setText(temperatura2);
+                pronostico3.setText(temperatura3);
+
+                Picasso.get().load(icono1).into(iconoPronostico1);
+                Picasso.get().load(icono2).into(iconoPronostico2);
+                Picasso.get().load(icono3).into(iconoPronostico3);
+
+                fechaPronostico1.setText(fecha1);
+                fechaPronostico2.setText(fecha2);
+                fechaPronostico3.setText(fecha3);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        requestPronostico.add(pronostico);
     }
 }
