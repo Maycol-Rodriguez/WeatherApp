@@ -36,7 +36,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class HomeFragment extends Fragment {
-    TextView txtTemperatura, txtCiudad, txtHumedad, txtViento, txtPresion, txtPrecipitacion, txtDescripcionClima, txtFecha;
+    TextView txtTemperatura, txtCiudad, txtHumedad, txtViento, txtPresion, txtRafagaViento, txtDescripcionClima, txtFecha;
     ImageView estrella, iconoClima;
     LinearLayout contenedor;
     private boolean activo;
@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment {
     ConexionSqlite conn;
     String icono;
 
-    boolean checkedTemp, checkedVelocidadViento, checkedPresion, checkedPrecipitacion, checkedDistancia;
+    boolean checkedTemp, checkedVelocidadViento, checkedPresion, checkedRafagaViento, checkedDistancia;
     String unidad = "";
     String grados = "";
 
@@ -76,7 +76,7 @@ public class HomeFragment extends Fragment {
         txtHumedad = view.findViewById(R.id.tvHumedadClima);
         txtViento = view.findViewById(R.id.tvVientoClima);
         txtPresion = view.findViewById(R.id.tvPresionClima);
-        txtPrecipitacion = view.findViewById(R.id.tvPrecipitacionClima);
+        txtRafagaViento = view.findViewById(R.id.tvPrecipitacionClima);
         txtDescripcionClima = view.findViewById(R.id.tvDescripcionClima);
         iconoClima = view.findViewById(R.id.ivIconoClima);
         txtFecha = view.findViewById(R.id.tvFecha);
@@ -101,8 +101,7 @@ public class HomeFragment extends Fragment {
             checkedTemp = bundle.getBoolean("temperatura");
             checkedVelocidadViento = bundle.getBoolean("velocidadViento");
             checkedPresion = bundle.getBoolean("presion");
-            checkedPrecipitacion = bundle.getBoolean("precipitacion");
-            checkedDistancia = bundle.getBoolean("distancia");
+            checkedRafagaViento = bundle.getBoolean("precipitacion");
         }
 
         if (checkedTemp) {
@@ -112,7 +111,6 @@ public class HomeFragment extends Fragment {
             unidad = "metric";
             grados = "°C";
         }
-
 
 
         conn = new ConexionSqlite(getContext(), CreacionBd.DB_NAME, null, CreacionBd.DB_VERSION);
@@ -178,20 +176,21 @@ public class HomeFragment extends Fragment {
                 Gson gson = new Gson();
                 ClimaPorNombre clima = gson.fromJson(response, ClimaPorNombre.class);
 
-                String temperatura = (int) clima.main.temp + grados;
+                String temperatura = checkedTemp ? (int) clima.main.temp + "°F" : (int) clima.main.temp + "°C";
                 String ciudad = clima.name;
-                String humedad = clima.main.humidity + "%";
-                String viento = clima.wind.speed + " m/s";
-                String presion = checkedPresion ? (int) (clima.main.pressure * 0.0295301) + " inHg" : clima.main.pressure + " hPa";
+                String humedad = clima.main.humidity + " %";
+                String viento = checkedVelocidadViento ? Math.round((clima.wind.speed * 2.237) * 100d) / 100d + " mill/h" : clima.wind.speed + " m/s";
+                String presion = checkedPresion ? Math.round((clima.main.pressure * 0.0295301) * 100d) / 100d + " inHg" : clima.main.pressure + " hPa";
                 String descripcion = clima.weather[0].description;
                 icono = Constantes.icono + clima.weather[0].icon + ".png";
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                String currentDate = dateFormat.format(calendar.getTime());
-                String precipitacion = clima.wind.deg + "°";
+                String fechaActual = dateFormat.format(calendar.getTime());
+                String rafagaViento = checkedRafagaViento ? Math.round((clima.wind.gust * 2.237) * 100d) / 100d + " mill/h" : (clima.wind.gust) + " m/s";
+
                 contenedor.setBackground(getResources().getDrawable(R.drawable.rounded_corners));
                 estrella.setImageResource(R.drawable.ic_star_empty);
-                txtFecha.setText(currentDate);
+                txtFecha.setText(fechaActual);
                 txtTemperatura.setText(temperatura);
                 txtCiudad.setText(ciudad);
                 txtHumedad.setText("Humedad: " + humedad);
@@ -199,8 +198,7 @@ public class HomeFragment extends Fragment {
                 txtPresion.setText("Presion: " + presion);
                 txtDescripcionClima.setText(descripcion);
                 Picasso.get().load(icono).into(iconoClima);
-                txtPrecipitacion.setText("Precipitacion: " + precipitacion);
-
+                txtRafagaViento.setText("Rafaga de viento: " + rafagaViento);
             }
         }, new Response.ErrorListener() {
             @Override

@@ -30,7 +30,7 @@
                 android:background="@drawable/rounded_corners"
                 android:hint="Ingrese nombre de una ciudad"
                 android:paddingHorizontal="20dp"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
             <Button
                 android:id="@+id/btnBuscar"
@@ -101,7 +101,7 @@
                     android:layout_gravity="center"
                     android:text=""
                     android:textColor="@color/Terciario"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -133,14 +133,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/Principal"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/tvVientoClima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/Principal"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/Principal"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/tvPrecipitacionClima"
@@ -163,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:textColor="@color/Principal"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <LinearLayout

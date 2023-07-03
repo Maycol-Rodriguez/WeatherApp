@@ -79,8 +79,7 @@ public class MainActivity extends AppCompatActivity {
         MaterialSwitch swTemperatura = findViewById(R.id.swTemperatura);
         MaterialSwitch swVelocidadV = findViewById(R.id.swVelocidad);
         MaterialSwitch swPresion = findViewById(R.id.swPresion);
-        MaterialSwitch swPrecipitacion = findViewById(R.id.swPrecipitacion);
-        MaterialSwitch swDistancia = findViewById(R.id.swDistancia);
+        MaterialSwitch swRafagaViento = findViewById(R.id.swRafagaViento);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -88,8 +87,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putBoolean("temperatura", swTemperatura.isChecked());
         bundle.putBoolean("velocidadViento", swVelocidadV.isChecked());
         bundle.putBoolean("presion", swPresion.isChecked());
-        bundle.putBoolean("precipitacion", swPrecipitacion.isChecked());
-        bundle.putBoolean("distancia", swDistancia.isChecked());
+        bundle.putBoolean("precipitacion", swRafagaViento.isChecked());
 
         HomeFragment homeFragment = new HomeFragment();
         homeFragment.setArguments(bundle);

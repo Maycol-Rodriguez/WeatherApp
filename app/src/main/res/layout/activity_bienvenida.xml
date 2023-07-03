@@ -31,8 +31,8 @@
         android:id="@+id/linearLayoutCompat10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/rounded_corners"
         android:orientation="vertical"
@@ -85,8 +85,8 @@
             android:id="@+id/linearLayoutCompat9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corners1"
             android:layout_gravity="center"
+            android:background="@drawable/rounded_corners1"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -102,15 +102,15 @@
                     android:layout_weight="1"
                     android:text="Humedad:"
                     android:textColor="@color/Principal"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/biVientoClima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Viento:"
+                    android:text="Velocidad Viento:"
                     android:textColor="@color/Principal"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -126,16 +126,16 @@
                     android:layout_weight="1"
                     android:text="Presion:"
                     android:textColor="@color/Principal"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/biPrecipitacionClima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text="Precipitacion:"
+                    android:text="Rafaga de Viento:"
                     android:textColor="@color/Principal"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -149,11 +149,11 @@
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:backgroundTint="@color/Secundario"
+        android:onClick="openHome"
         android:paddingVertical="10dp"
         android:text="Ver más"
-        android:onClick="openHome"
         android:textColor="@color/Principal"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:textStyle="bold" />
 
 </LinearLayout>

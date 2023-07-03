@@ -26,72 +26,59 @@
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swTemperatura"
-            app:showText="true"
-            android:textOff="°C"
-            android:textOn="°F"
-            app:thumbTextPadding="10dp"
-            app:switchPadding="70dp"
-            android:textColorHint="#FFF"
-            app:switchMinWidth="50dp"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="Temperatura"
             android:textColor="@color/Terciario"
-            android:textSize="15sp" />
+            android:textColorHint="#FFF"
+            android:textOff="°C"
+            android:textOn="°F"
+            android:textSize="16sp"
+            app:showText="true"
+            app:switchMinWidth="50dp"
+            app:switchPadding="70dp"
+            app:thumbTextPadding="10dp" />
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swVelocidad"
-            app:showText="true"
-            android:textOff="mph"
-            android:textOn="°Km/h"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Velocidad del Viento"
             android:textColor="@color/Terciario"
-            android:textSize="15sp" />
+            android:textOff="m/s"
+            android:textOn="°m/h"
+            android:textSize="16sp"
+            app:showText="true" />
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swPresion"
-            app:showText="true"
-            android:textOff="hpa"
-            android:textOn="inHG"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Presion"
             android:textColor="@color/Terciario"
-            android:textSize="15sp" />
+            android:textOff="hpa"
+            android:textOn="inHG"
+            android:textSize="16sp"
+            app:showText="true" />
 
         <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/swPrecipitacion"
-            app:showText="true"
-            android:textOff="mm"
-            android:textOn="in"
+            android:id="@+id/swRafagaViento"
             style="@style/Widget.App.Switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Precipitacion"
+            android:text="Rafaga de Viento"
             android:textColor="@color/Terciario"
-            android:textSize="15sp" />
-
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/swDistancia"
-            app:showText="true"
-            android:textOff="Km"
-            android:textOn="mi"
-            style="@style/Widget.App.Switch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Distancia"
-            android:textColor="@color/Terciario"
-            android:textSize="15sp" />
+            android:textOff="m/s"
+            android:textOn="ml/h"
+            android:textSize="16sp"
+            app:showText="true" />
 
         <Button
             android:id="@+id/btnGuardarUnidades"
@@ -99,16 +86,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="80dp"
-            android:onClick="enviarCambios"
             android:backgroundTint="@color/Secundario"
+            android:onClick="enviarCambios"
             android:paddingVertical="10dp"
             android:text="Guardar Cambios"
             android:textColor="@color/Principal"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
-
-
-
 
     </LinearLayout>
 

@@ -11,7 +11,6 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
@@ -28,17 +27,14 @@ import com.rodriguez.weathermapsapp.Helpers.Constantes;
 import com.rodriguez.weathermapsapp.Helpers.Mappers.ClimaPorNombre;
 import com.rodriguez.weathermapsapp.MainActivity;
 import com.rodriguez.weathermapsapp.R;
-import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
 public class Bienvenida extends AppCompatActivity {
 
-    TextView txtTemperatura, txtCiudad, txtHumedad, txtViento, txtPresion, txtPrecipitacion;
+    TextView txtTemperatura, txtCiudad, txtHumedad, txtViento, txtPresion, txtRafagaViento;
     FusedLocationProviderClient fusedLocationProviderClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +46,7 @@ public class Bienvenida extends AppCompatActivity {
         txtHumedad = findViewById(R.id.biHumedadClima);
         txtViento = findViewById(R.id.biVientoClima);
         txtPresion = findViewById(R.id.biPresionClima);
-        txtPrecipitacion = findViewById(R.id.biPrecipitacionClima);
+        txtRafagaViento = findViewById(R.id.biPrecipitacionClima);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         obtenerUbicacion();
@@ -86,14 +82,14 @@ public class Bienvenida extends AppCompatActivity {
                                     String presion = clima.main.pressure + " hPa";
                                     String icono = Constantes.icono + clima.weather[0].icon + ".png";
 
-                                    String precipitacion = clima.wind.deg + "°";
+                                    String rafagaViento = clima.wind.gust + "°";
 
                                     txtTemperatura.setText(temperatura);
                                     txtCiudad.setText(ciudad);
                                     txtHumedad.setText("Humedad: " + humedad);
-                                    txtViento.setText("Viento: " + viento);
+                                    txtViento.setText("Velocidad de Viento: " + viento);
                                     txtPresion.setText("Presion: " + presion);
-                                    txtPrecipitacion.setText("Precipitacion: " + precipitacion);
+                                    txtRafagaViento.setText("Rafaga de Viento: " + rafagaViento);
 //                                    Picasso.get().load(icono).into(iconoClima);
                                 }
                             }, new Response.ErrorListener() {
