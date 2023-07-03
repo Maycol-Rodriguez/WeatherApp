@@ -100,7 +100,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Humedad: 39%"
+                    android:text="Humedad:"
                     android:textColor="@color/Principal"
                     android:textSize="15sp" />
 
@@ -108,7 +108,7 @@
                     android:id="@+id/biVientoClima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Viento: 2.2mph"
+                    android:text="Viento:"
                     android:textColor="@color/Principal"
                     android:textSize="15sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -124,7 +124,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Presion: 29.94 inHg"
+                    android:text="Presion:"
                     android:textColor="@color/Principal"
                     android:textSize="15sp" />
 
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text="Precipitacion: 29%"
+                    android:text="Precipitacion:"
                     android:textColor="@color/Principal"
                     android:textSize="15sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>

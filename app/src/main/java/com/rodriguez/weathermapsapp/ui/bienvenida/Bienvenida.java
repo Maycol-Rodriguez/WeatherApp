@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -41,7 +40,6 @@ public class Bienvenida extends AppCompatActivity {
 
     TextView txtTemperatura, txtCiudad, txtHumedad, txtViento, txtPresion, txtPrecipitacion;
     FusedLocationProviderClient fusedLocationProviderClient;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,8 +111,6 @@ public class Bienvenida extends AppCompatActivity {
                                     Toast.makeText(Bienvenida.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });
-
-
                             requestLagLong.add(climaActualLagLong);
 
                         } catch (IOException e) {
