@@ -65,7 +65,8 @@ public class Bienvenida extends AppCompatActivity {
 
                             double latitud = addresses.get(0).getLatitude();
                             double longitud = addresses.get(0).getLongitude();
-
+                            System.out.println("Latitud: " + latitud);
+                            System.out.println("Longitud: " + longitud);
                             String urlLatLong = Constantes.baseUrl + "weather?lat=" + latitud + "&lon=" + longitud + "&appid=" + Constantes.apiKey + "&units=metric&lang=es";
                             RequestQueue requestLagLong = Volley.newRequestQueue(Bienvenida.this);
 

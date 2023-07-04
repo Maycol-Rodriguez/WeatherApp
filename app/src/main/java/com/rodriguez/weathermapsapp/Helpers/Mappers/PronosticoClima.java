@@ -37,7 +37,7 @@ public class PronosticoClima {
         private Clouds clouds;
         private Wind wind;
         private int visibility;
-        private int pop;
+        private double pop;
         private Sys sys;
         private String dt_txt;
 
@@ -66,7 +66,7 @@ public class PronosticoClima {
             return visibility;
         }
 
-        public int getPop() {
+        public double getPop() {
             return pop;
         }
 

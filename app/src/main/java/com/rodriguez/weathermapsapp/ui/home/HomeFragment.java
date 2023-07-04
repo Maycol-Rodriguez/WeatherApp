@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
     TextView txtTemperatura, txtCiudad, txtHumedad, txtViento, txtPresion, txtRafagaViento, txtDescripcionClima, txtFecha;
     ImageView estrella, iconoClima;
     LinearLayout contenedor;
-    private boolean activo;
+    boolean activo;
 
     Button btnBuscar;
 
@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment {
     ConexionSqlite conn;
     String icono;
 
-    boolean checkedTemp, checkedVelocidadViento, checkedPresion, checkedRafagaViento, checkedDistancia;
+    boolean checkedTemp = false, checkedVelocidadViento = false, checkedPresion = false, checkedRafagaViento = false, checkedDistancia = false;
     String unidad = "";
     String grados = "";
 
@@ -164,9 +164,9 @@ public class HomeFragment extends Fragment {
             return;
         }
 
+        String urlClima = Constantes.baseUrl+"weather?q=" + txtBuscar.getText().toString() + "&appid=" + Constantes.apiKey + "&units=" + unidad + "&lang=es";
+        String urlPronostico = Constantes.baseUrl+"forecast?q=" + txtBuscar.getText().toString() + "&appid=" + Constantes.apiKey + "&units=" + unidad + "&lang=es&cnt=20";
 
-        String urlClima = Constantes.baseUrl + "weather?q=" + txtBuscar.getText().toString().trim() + "&appid=" + Constantes.apiKey + "&units=" + unidad + "&lang=es";
-        String urlPronostico = Constantes.baseUrl + "forecast?q=" + txtBuscar.getText().toString() + "&appid=" + Constantes.apiKey + "&units=" + unidad + "&lang=es&cnt=20";
         RequestQueue requestClimaActual = Volley.newRequestQueue(getContext());
         StringRequest climaActual = new StringRequest(Request.Method.GET, urlClima, new Response.Listener<String>() {
             @Override
