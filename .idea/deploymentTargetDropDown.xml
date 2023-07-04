@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="deploymentTargetDropDown">
@@ -14,4 +15,22 @@
     </targetSelectedWithDropDown>
     <timeTargetWasSelectedWithDropDown value="2023-07-04T16:09:42.829281100Z" />
   </component>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <targetSelectedWithDropDown>
+      <Target>
+        <type value="QUICK_BOOT_TARGET" />
+        <deviceKey>
+          <Key>
+            <type value="VIRTUAL_DEVICE_PATH" />
+            <value value="C:\Users\marpi\.android\avd\Pixel_4_API_30.avd" />
+          </Key>
+        </deviceKey>
+      </Target>
+    </targetSelectedWithDropDown>
+    <timeTargetWasSelectedWithDropDown value="2023-07-04T06:24:35.569180900Z" />
+  </component>
+>>>>>>> f976e42f204194cdd6e9222e261f2d7e09510022
 </project>

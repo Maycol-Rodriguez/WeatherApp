@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.rodriguez.weathermapsapp.Helpers.Mappers.ClimaFavorito;
+import com.rodriguez.weathermapsapp.Sqlite.Mappers.ClimaFavorito;
 import com.rodriguez.weathermapsapp.R;
 import com.squareup.picasso.Picasso;
 

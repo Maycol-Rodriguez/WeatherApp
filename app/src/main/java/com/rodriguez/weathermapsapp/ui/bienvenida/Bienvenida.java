@@ -24,7 +24,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.gson.Gson;
 import com.rodriguez.weathermapsapp.Helpers.Constantes;
-import com.rodriguez.weathermapsapp.Helpers.Mappers.ClimaPorNombre;
+import com.rodriguez.weathermapsapp.Sqlite.Mappers.ClimaPorNombre;
 import com.rodriguez.weathermapsapp.MainActivity;
 import com.rodriguez.weathermapsapp.R;
 

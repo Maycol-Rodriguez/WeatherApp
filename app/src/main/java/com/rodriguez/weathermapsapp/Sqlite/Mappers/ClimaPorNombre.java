@@ -1,4 +1,4 @@
-package com.rodriguez.weathermapsapp.Helpers.Mappers;
+package com.rodriguez.weathermapsapp.Sqlite.Mappers;
 
 public class ClimaPorNombre {
     public Coord coord;

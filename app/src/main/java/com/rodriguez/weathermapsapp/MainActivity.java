@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void enviarCambios(View view) {
         Toast.makeText(this, "Cambios guardados", Toast.LENGTH_SHORT).show();
+
         MaterialSwitch swTemperatura = findViewById(R.id.swTemperatura);
         MaterialSwitch swVelocidadV = findViewById(R.id.swVelocidad);
         MaterialSwitch swPresion = findViewById(R.id.swPresion);
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
         Bundle bundle = new Bundle();
         bundle.putBoolean("temperatura", swTemperatura.isChecked());
         bundle.putBoolean("velocidadViento", swVelocidadV.isChecked());
@@ -93,5 +95,9 @@ public class MainActivity extends AppCompatActivity {
         homeFragment.setArguments(bundle);
         fragmentTransaction.replace(R.id.nav_host_fragment_content_main, homeFragment);
         fragmentTransaction.commit();
+    }
+
+    public void guardarCambios(View view) {
+
     }
 }

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import com.rodriguez.weathermapsapp.Helpers.Adaptador;
-import com.rodriguez.weathermapsapp.Helpers.Mappers.ClimaFavorito;
+import com.rodriguez.weathermapsapp.Sqlite.Mappers.ClimaFavorito;
 import com.rodriguez.weathermapsapp.R;
 import com.rodriguez.weathermapsapp.Sqlite.ConexionSqlite;
 import com.rodriguez.weathermapsapp.Sqlite.CreacionBd;

@@ -24,8 +24,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.rodriguez.weathermapsapp.Helpers.Constantes;
-import com.rodriguez.weathermapsapp.Helpers.Mappers.ClimaPorNombre;
-import com.rodriguez.weathermapsapp.Helpers.Mappers.PronosticoClima;
+import com.rodriguez.weathermapsapp.Sqlite.Mappers.ClimaPorNombre;
+import com.rodriguez.weathermapsapp.Sqlite.Mappers.PronosticoClima;
 import com.rodriguez.weathermapsapp.R;
 import com.rodriguez.weathermapsapp.Sqlite.ConexionSqlite;
 import com.rodriguez.weathermapsapp.Sqlite.CreacionBd;
@@ -171,8 +171,6 @@ public class HomeFragment extends Fragment {
         StringRequest climaActual = new StringRequest(Request.Method.GET, urlClima, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-
                 Gson gson = new Gson();
                 ClimaPorNombre clima = gson.fromJson(response, ClimaPorNombre.class);
 
@@ -183,9 +181,11 @@ public class HomeFragment extends Fragment {
                 String presion = checkedPresion ? Math.round((clima.main.pressure * 0.0295301) * 100d) / 100d + " inHg" : clima.main.pressure + " hPa";
                 String descripcion = clima.weather[0].description;
                 icono = Constantes.icono + clima.weather[0].icon + ".png";
+
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                 String fechaActual = dateFormat.format(calendar.getTime());
+
                 String rafagaViento = checkedRafagaViento ? Math.round((clima.wind.gust * 2.237) * 100d) / 100d + " mill/h" : (clima.wind.gust) + " m/s";
 
                 contenedor.setBackground(getResources().getDrawable(R.drawable.rounded_corners));
@@ -224,6 +224,7 @@ public class HomeFragment extends Fragment {
             public void onResponse(String response) {
                 Gson gson = new Gson();
                 PronosticoClima pronostico = gson.fromJson(response, PronosticoClima.class);
+
                 String icono1 = Constantes.icono + pronostico.getList().get(0).getWeather().get(0).getIcon() + ".png";
                 String icono2 = Constantes.icono + pronostico.getList().get(7).getWeather().get(0).getIcon() + ".png";
                 String icono3 = Constantes.icono + pronostico.getList().get(15).getWeather().get(0).getIcon() + ".png";

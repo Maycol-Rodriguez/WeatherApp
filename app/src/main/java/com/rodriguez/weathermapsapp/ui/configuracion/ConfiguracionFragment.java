@@ -29,7 +29,6 @@ public class ConfiguracionFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view;
         view = inflater.inflate(R.layout.fragment_configuracion, container, false);
-        fuente = view.findViewById(R.id.spnFuente);
         ArrayAdapter<Integer> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, getNumberList());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fuente.setAdapter(adapter);
